@@ -23,9 +23,14 @@ class Game
 
   # This is where the card game is controlled.
   def play
+    # Deal the cards.
     @dealer.deal_cards(@players, @deck)
 
+    # Show the hands and scores.
     show_hands_and_scores
+
+    # Show who won.
+    show_winners
   end
 
   # This shows what cards each player received and their hand score.
@@ -37,5 +42,13 @@ class Game
 
     # Show the cards and score of the dealer.
     puts @dealer.hand_and_score
+  end
+
+  # This method shows all of the players that beat the dealer.
+  def show_winners
+    # Loop through each player.
+    @players.each do |player|
+      player.result(@dealer)
+    end
   end
 end

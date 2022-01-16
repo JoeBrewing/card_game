@@ -34,4 +34,13 @@ class Player
   def hand_and_score
     "#{name} received (#{drawn_cards}) with a hand score of: #{hand_score}"
   end
+
+  # This shows whether or not the player beat the dealer.
+  def result(dealer)
+    # Get whether or not the player beat the dealer.
+    action = hand_score > dealer.hand_score ? 'beat the dealer.' : 'lost to the dealer.'
+
+    # Print out whether or not the player beat the dealer.
+    puts "#{name} #{action}"
+  end
 end
