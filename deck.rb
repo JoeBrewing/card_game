@@ -64,8 +64,7 @@ class Deck
 
   # This method initializes a new shuffled deck.
   def initialize
-    # Duplicate CARDS and shuffle it to initialize a new deck.
-    @deck = CARDS.deep_dup.shuffle
+    @deck = CARDS.shuffle
   end
 
   # This method returns the current deck.
@@ -75,6 +74,16 @@ class Deck
 
   # This method draws a card from the deck.
   def draw
+    # Pick a random card index from the deck.
+    card_index = rand(@deck.length - 1)
 
+    # Get the card.
+    card = @deck[card_index]
+
+    # Delete the card from the deck.
+    @deck.delete_at(card_index)
+
+    # Return the card.
+    card
   end
 end
