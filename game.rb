@@ -1,18 +1,17 @@
 require_relative('deck')
-require_relative('player_queue')
 require_relative('dealer')
 
 class Game
-  # This is the main game controller class. It holds all of the methods that are
+  # This is the main game class. It holds all of the methods that are
   # needed to progress the game.
 
   # This is where we get our new deck, dealer, and get the next players.
-  def initialize
+  def initialize(player_queue)
     # Get a new deck.
     @deck = Deck.new()
 
-    # Initialize the player queue.
-    @queue = PlayerQueue.new()
+    # Set the player queue.
+    @queue = player_queue
 
     # Set up the card dealer.
     @dealer = Dealer.new('Dealer')
